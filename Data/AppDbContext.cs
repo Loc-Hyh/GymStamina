@@ -44,8 +44,7 @@ namespace GymManagementProject.Data
                 .HasForeignKey(s => s.BranchId);
             modelBuilder.Entity<StaffEntity>()
                 .Property(e => e.Role)
-                .HasConversion<int>(); // ✅ chuyển enum sang int
-
+                .HasConversion<int>();
             // Quan hệ 1-n: Branch - Customers
             /*modelBuilder.Entity<CustomerEntity>()
                 .HasOne(c => c.Branch)
@@ -70,13 +69,13 @@ namespace GymManagementProject.Data
                 .HasOne(s => s.Customer)
                 .WithMany(c => c.Schedules)
                 .HasForeignKey(s => s.CustomerId)
-                .OnDelete(DeleteBehavior.Restrict); // << THÊM DÒNG NÀY*/
+                .OnDelete(DeleteBehavior.Restrict);  */
 
             /*modelBuilder.Entity<ScheduleEntity>()
                 .HasOne(s => s.Trainer)
                 .WithMany(t => t.Schedules)
                 .HasForeignKey(s => s.TrainerId)
-                .OnDelete(DeleteBehavior.Restrict); // ĐÃ ĐÚNG */
+                .OnDelete(DeleteBehavior.Restrict);  */
             modelBuilder.Entity<ScheduleEntity>()
                 .HasOne(s => s.Invoice)
                 .WithMany(ss => ss.Schedules )
@@ -86,7 +85,7 @@ namespace GymManagementProject.Data
                 .HasOne(s => s.Service)
                 .WithMany(sv => sv.Schedules)
                 .HasForeignKey(s => s.ServiceId)
-                .OnDelete(DeleteBehavior.Restrict); // << THÊM DÒNG NÀY*/
+                .OnDelete(DeleteBehavior.Restrict); */
 
 
 
